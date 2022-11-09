@@ -1,9 +1,14 @@
+
 import processing.core.PApplet;
 import processing.core.PImage;
+
 
 public class Main extends PApplet {
     //All Images
     PImage PokeBall;
+    PImage pokemon1;
+    PImage pokemon2;
+
 
     //All vars
     //Hp Bars
@@ -34,6 +39,9 @@ public class Main extends PApplet {
 
 
         PokeBall = loadImage("PokeBall.png");
+        pokemon1 = loadImage("Eevee.png");
+        pokemon2 = loadImage("Bulbasaur.png");
+
 
         HpBar1 = 100;
         HpBar2 = 100;
@@ -62,6 +70,11 @@ public class Main extends PApplet {
 
         background(180);
         PokeBall.resize(60,60);
+        pokemon1.resize(350,350); //eevee
+        pokemon2.resize(150,150); // bulbasaur
+
+
+
         textSize(20);
         text(StartingText, 150, 500);
 
@@ -75,12 +88,14 @@ public class Main extends PApplet {
         //PokeBall Am
         if (pokeBallX >= 350){
             background(180);
+            image(pokemon1, 45, 200);
             pokeBallSpeedX = 0;
             pokeBallSpeedY = 0;
 
         }
         if (pokeBallY <= 250){
             background(180);
+            image(pokemon1, 45, 200);
             pokeBallSpeedY = 0;
             pokeBallSpeedX = 0;
         }
@@ -94,6 +109,7 @@ public class Main extends PApplet {
         textSize(55);
         fill(0);
         text("Fight", fightTextXValue,fightTextYValue);
+        image(pokemon2, 250,100);
 
         fightRectXValue = fightTextXValue - speedFightRec;
         fightTextXValue = fightTextXValue - speedFightText;
@@ -118,8 +134,12 @@ public class Main extends PApplet {
 
 
     }
+    public void mouseReleased(){
 
-    public static void main(String[] args) {
+
+    }
+
+    public static void main(String[] args){
         PApplet.main("Main");
     }
 }
